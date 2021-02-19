@@ -13,7 +13,8 @@ const session = require('express-session'); // sessio passport:ia varten
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const ryhmaRouter = require('./routes/ryhma');
-const tilausRouter = require('./routes/tilaus');
+const tuoteRouter = require('./routes/tuote');
+// const tilausRouter = require('./routes/tilaus');
 
 const passportFunction = require('./passportfunction');
 
@@ -67,7 +68,8 @@ app.use(cors(corsOptions));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ryhma', ryhmaRouter);
-app.use('/tilaus', tilausRouter);
+app.use('/tuote', tuoteRouter);
+//app.use('/tilaus', tilausRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
