@@ -6,6 +6,7 @@ const TuoteSchema = new mongoose.Schema({
     tuotecode: { type: String, unique: true, required: true },
     name: { type: String, required: true, max: 80 },
     tuoteinfo: { type: String, required: false, min: 0, max: 300 },
+    ryhmacode: { type: String, required: true },
 });
 
 module.exports = TuoteSchema;

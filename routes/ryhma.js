@@ -17,7 +17,7 @@ router.get('/', sc.findall);
 
 // http://localhost:3000/ryhma/ryhmacode/a1234  tms.
 // tässä : -merkintä on aina dynaamisen (muuttuvat) reittiparametrin edessä
-router.get('/:ryhmacode', sc.findbyryhmacode);
+router.get('/ryhmacode/:ryhmacode', sc.findbyryhmacode);
 
 // http://localhost:3000/ryhma/5f07718dc418fb4de4f39307  tms.
 router.get('/:id', sc.findbyid);

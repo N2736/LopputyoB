@@ -7,11 +7,10 @@ require('dotenv').config();
     voidaan dekryptata tokenista. Kannattaa laittaa tokeniin
     vain tieto siitä onko käyttäjä admin. */
 function createToken(user) {
-
     const payload = {
         'username': user.username,
         'isadmin': user.isadmin,
-    }; // Tässä on esim {'username': 'samppa', 'isadmin': true}
+    }; // Tässä on esim {'username': 'omakayttaja', 'isadmin': true}
     console.log(payload);
     const token = jwt.sign(payload, process.env.SECRET, {
         expiresIn: 60 * 60 * 24, // expiroituu 24 tunnissa

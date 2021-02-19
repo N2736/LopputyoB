@@ -13,14 +13,14 @@ const sc = require('../controllers/tilauscontroller');
 const authorize = require('../verifytoken'); // authorisointi eli vahvistetaan token
 
 // http://localhost:3000/tilaus/
-router.get('/tilaus', sc.findall);
+router.get('/', sc.findall);
 
-// http://localhost:3000/tilaus/tilaus/a1234  tms.
+// http://localhost:3000/tilaus/a1234  tms.
 // tässä : -merkintä on aina dynaamisen (muuttuvat) reittiparametrin edessä
-router.get('/tilaus/:tilausnro', sc.findbytilauscode);
+router.get('/:tilausnro', sc.findbytilauscode);
 
 // http://localhost:3000/tilaus/5f07718dc418fb4de4f39307  tms.
-router.get('/tilaus/:id', sc.findbyid);
+router.get('/:id', sc.findbyid);
 
 // seuraavat reitit ovat käytössä vain authorisoiduille käyttäjille
 // authorize-funktio suoritetaan ennen kuin päästään kontrollerin metodiin

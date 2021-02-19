@@ -5,11 +5,11 @@
  */
 
 const app = require('../app');
-const debug = require('debug')('restapiexpress:server');
+const debug = require('debug')('tarvikeb:server');
 const http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ * Get port from environment and store in tarvikeb.
  */
 
 const port = normalizePort(process.env.PORT || '3000');

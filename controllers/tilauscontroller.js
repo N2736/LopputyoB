@@ -7,14 +7,6 @@ const Tilaus = require('../models/Tilaus');
 
 const tilauscontroller = {
     findall: (req, res) => {
-        /*
-            Student.find((err, students) get=> {
-                if (err) {
-                    throw err;
-                }
-                res.json(students);
-            });
-        */
         Tilaus.find().then((tilaus) => {
             res.json(tilaus);
         }).catch((err) => {

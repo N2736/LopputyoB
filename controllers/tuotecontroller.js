@@ -1,43 +1,43 @@
-const Ryhma = require('../models/Ryhma');
+const Tuote = require('../models/Tuote');
 
-const ryhmacontroller = {
+const tuotecontroller = {
     findall: (req, res) => {
-        Ryhma.find().then((ryhma) => {
-            res.json(ryhma);
+        Tuote.find().then((tuote) => {
+            res.json(tuote);
         }).catch((err) => {
             console.error(err);
         });
     },
-    // Haetaan ryhmä ryhmänumeron perusteella
+    // Haetaan tuote tuotenumeron perusteella
     // dynaaminen parametri, jossa on :-merkki edessä, saadaan tällä tavalla
-    findbyryhmacode: (req, res) => {
-        Ryhma.findOne({ ryhmacode: req.params.ryhmacode }).then((ryhma) => {
-            res.json(ryhma);
+    findbytuotecode: (req, res) => {
+        Tuote.findOne({ tuotecode: req.params.tuotecode }).then((tuote) => {
+            res.json(tuote);
         }).catch((err) => {
             console.error(err);
         });
     },
     findbyid: (req, res) => {
-        Ryhma.findOne({ _id: req.params.id }).then((ryhma) => {
-            res.json(ryhma);
+        Tuote.findOne({ _id: req.params.id }).then((tuote) => {
+            res.json(tuote);
         }).catch((err) => {
             console.error(err);
         });
     },
     delete: (req, res) => {
-        Ryhma.findOneAndDelete({ _id: req.params.id }).then((ryhma) => {
-            res.json(ryhma);
+        Tuote.findOneAndDelete({ _id: req.params.id }).then((tuote) => {
+            res.json(tuote);
         }).catch((err) => {
             console.error(err);
         });
     },
-    // päivitetään koko ryhmaolio
+    // päivitetään koko tuoteolio
     update: (req, res) => {
         // findByIdAndUpdate käyttääpi aina id:tä päivitykseen. Siksi nyt ei tarvitse
         // laittaa oliota parametriksi
         // req.body on koko group JSON-muodossa
-        Ryhma.findByIdAndUpdate(req.params.id, req.body).then((ryhma) => {
-            res.json(ryhma);
+        Tuote.findByIdAndUpdate(req.params.id, req.body).then((tuote) => {
+            res.json(tuote);
         }).catch((err) => {
             console.error(err);
         });
@@ -46,18 +46,18 @@ const ryhmacontroller = {
     // clientilta eli asiakassovellukselta
     add: (req, res) => {
         // req.body sisältää opiskelijaolion (tulleepi clientilta)
-        const NewRyhma = Ryhma(req.body);
+        const NewTuote = Tuote(req.body);
 
         // metodin tuloksen käsittely callbackillä
         // save.metodin callback tuottaa err-virheen tai res-vastauksen
-        NewRyhma.save((err, Ryhma) => {
+        NewTuote.save((err, Tuote) => {
             if (err) {
                 console.error(err);
             };
-            console.log('Groupobjekti, joka vietiin kantaan: ' + Ryhma);
-            res.json(Ryhma); // tämä menee frontendiin
+            console.log('Tuoteobjekti, joka vietiin kantaan: ' + Tuote);
+            res.json(Tuote); // tämä menee frontendiin
         });
     },
 };
 
-module.exports = ryhmacontroller;
+module.exports = tuotecontroller;

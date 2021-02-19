@@ -10,12 +10,11 @@ const User = require('../models/User.js');
 const createToken = require('../createtoken.js');
 
 const UserController = {
-
     // uuden käyttäjän rekisteröinti eli lisääminen kantaan
     registerUser: function(req, res, next) {
         // passu kryptataan ennen kantaan laittamista
         const hashedPassword = bcrypt.hashSync(req.body.password, 8);
-        // oliosta tulevat tiedot kantaan
+        // oliosta tulevat tiedot laitetaan kantaan
         User.create({
                 username: req.body.username,
                 password: hashedPassword,
