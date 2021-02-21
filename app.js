@@ -23,7 +23,7 @@ passportFunction(passport);
 
 const app = express();
 
-// Seuraavaa käytetään mongo-kontin kanssa
+// Seuraavaa (kommentoitua riviä) käytetään mongo-kontin kanssa
 // mongodb://root:password@172.22.0.1:27017/admin
 mongoose.connect(process.env.MONGODB_URL, {
     useCreateIndex: true,
