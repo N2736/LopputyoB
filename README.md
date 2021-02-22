@@ -32,7 +32,14 @@ Kirjautumisen jälkeen käyttäjä voi myös ylläpitää tuotteiden tietoja.
 - Authorisoinnissa on käytetty JWT-tokenia.
 - Salasanat on kryptattu bcryptillä
 
+### Työssä hyödynnetyt tutoriaalit
+
+Tässä lopputyössä on hyödynnetty lähes pelkästään Tommi Tuikan erinomaisia luennoilla käytettyjä esimerkkitehtäviä (meanfront ja restapiexpress). Näistä on kopioitu ja sovellettu rakenteita suuressa mittakaavassa kuitenkin muuttaen toiminnallisuutta ja ulkoasua tähän työhön soveltuvammaksi.
+
 ### Komennot, joilla kehitysversion saa Githubista omalle koneelle toimimaan
+
+Itse käytän kopioinnissa seuraavaa valmista ohjetta soveltaen
+[Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 ## 3 Reflektio ja ajankäyttö
 
