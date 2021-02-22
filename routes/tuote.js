@@ -1,11 +1,11 @@
 /*
-students.js on reititystiedosto (router), joka tarjoaa REST-apin
+tuote.js on reititystiedosto (router), joka tarjoaa REST-apin
 Tietokantaoperaatiot ovat kontrollerin metodeissa
 
 Ryhma-datan muokkauksen mahdollistavat reitit on suojattu authorize -metodilla
-joten muokkaamaan pääsy vaatii kirjautumisen
-
+joten, jos haluaapi muokata niin sit pitää kirjautua sisään
 */
+
 /* eslint-disable new-cap */
 const express = require('express');
 const router = express.Router();
@@ -32,7 +32,6 @@ router.post('/', authorize, sc.add);
 router.delete('/:id', authorize, sc.delete);
 
 // Seuraavassa menee updateen kaksi parametria
-// router.put('/:id/:spoints', sc.updatespoints);
-// router.put('/:id', authorize, sc.update);
+router.put('/:id', authorize, sc.update);
 
 module.exports = router;

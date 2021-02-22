@@ -46,9 +46,6 @@ const ryhmacontroller = {
     // clientilta eli asiakassovellukselta
     add: (req, res) => {
         // req.body sisältää opiskelijaolion (tulleepi clientilta)
-        console.log('Talletetaan seuraava Ryhma:');
-        console.log(req.body);
-
         const NewRyhma = Ryhma(req.body);
 
         // metodin tuloksen käsittely callbackillä
