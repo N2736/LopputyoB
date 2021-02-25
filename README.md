@@ -1,61 +1,66 @@
 # Tarvike lopputyö
 
+![kuva](./tarvike.png)
+
 ## 1 Yleisesittely
 
 ### Sovelluksen idea
 
-Alkuperäinen tarkoitus oli tehdä sovellus, jota sähköurakoitsija voisi käyttää eräänlaisena ostoslistanaan.
-Mennessään uuteen kohteeseensa, sähköasentaja voisi sovellukseen kirjata/valita listasta sähköurakassa myöhemmin tarvittavista sähkötarvikkeista.
-Tämä tarvikelista apunaan hän voisi myöhemmin mennä tukkuun ja kerätä listaamansa tuotteet. Tai vaihtoehtoisesti hän voisi tehdä tilauksen suoraan verkkokaupan kautta.
-
-Tämä oli suunnitelma. Ja tämän suunnitelman ajattelinkin toteuttaa viime syksyn aikana. Syksyllä kuitenkin jouduin työtehtävien muuttuessa yllättäen suuriin haasteisiin omassa päivätyössäni. Ja sen myötä harjoitustyön tekemiseen ei ollut voimavaroja ja sen tekeminen jäi hyvin pienelle liekille.
-
-Viime joulun alla kuitenkin päivätyön aikataulut väljenivät niin, että pääsin jatkamaan tätä lopputyötä. Mutta, koska aikataulu tämän lopputyön suorittamisen osalta kävi vähiin, päätin rajata alkuperäistä suunnitelmaa minimiin. Tavoite oli tehdä tähän alkuperäiseen sovellukseen tarvittava osanen, joka täyttää lopputyölle annetut vaateet ja jota myöhemmin sitten voisi jatkokehitellä alkuperäisen suunnitelman mukaiseksi.
-
-Tässä Tarvike-sovelluksen osasessa voidaan ylläpitää tietokantaan talletettujen sähkötarvikkeiden tietoja.
-Aiemmin syötettyjä tarvikkeita voi selata ilman kirjautumista.
-Kirjautumisen jälkeen käyttäjä voi myös ylläpitää tuotteiden tietoja.
+> Alkuperäinen tarkoitus oli tehdä tutulle sähköurakoitsijalle hänen työtään helpottava sovellus. Tämän sovelluksen tarkoituksena oli, että hän voi helposti hallita eri urakoissa tarvittavien tai käytettyjen tarvikkeiden (=komponenttien) määriä urakan eri vaiheissa. Eli sovellus olisi eräänlainen muistilista/ostoslista, johon ensin arvioidaan sähköurakoissa mahdollisesti tarvittavat komponentit ja niiden määrät, johon sitten kirjataan toteutuneet ja josta lopuksi siirretään toteutuneet tiedot laskutukseen.
+>
+> Koska en viime syksyllä päivätyön muutoksien takia pystynytkään varaamaan riittävästi aikaa tämän suunnitelman toteuttamiseksi, karsin suunnitelmia ja tein tähän lopputyöhön pienen osasen tätä kokonaisuutta. Myöhemmin on tarkoitus jatkaa työtä laajentamalla sen toimintoja.
+> Tässä lopputyössä eli Tarvike-sovelluksen osasessa voidaan luoda ja ylläpitää tietokantaan sähkötarvikkeiden tietoja muutamalle ryhmäkokonaisuudelle.
 
 ### Toiminnallisuus lyhyesti
 
-- aiemmin syötettyjä tarvikkeita voi selata ilman kirjautumista
-- kirjautumissivulla voidaan kirjautua sovellukseen ylläpitäjäksi (käyttäjätunnuksen ja salasanan avulla)
-- ylläpitosivulla voidaan luoda uusia, päivittää ja poistaa sähkötarvikkeiden tietoja
+> Sovelluksen idea on hyvin samankaltainen kuin Tommi Tuikan Nodejs-sovelluskehityskurssilla käyttämät Meanfront- ja Restapiexpress-esimerkit.
+> Eli tässäkin sovelluksessa yhdellä välilehdellä näytetään kannan tämänhetkinen sisältö, yhdellä välilehdellä voidaan ylläpitää kannan tietoja kunhan ensiksi on kirjauduttu sisään kolmannen välilehden kautta.
+>
+> Olen esimerkin vuoksi tallentanut tietokantaan muutaman tarvikeryhmän. Näiden ryhmien alaisuuteen voidaan syöttää ja ylläpitää varsinaiset ryhmään kuuluvat komponentit. Muutama esimerkkikomponenttikin on tehty.
+>
+> Salasanojen ylläpitoa en ole kirjautumissivulle luonut. Testiä varten käyttäjätunnuksen ja salasanan saa minulta.
 
 ## 2 Kuvaus teknologioista
 
 ### Lyhyehkö kuvaus eri teknologioiden käyttämisestä työssä
 
-- Angular 11.
-- tietokanta on tällä hetkellä mongodb ja se pyörii MongoDBAtlas-palvelussa. Myöhemmin on tarkoitus vaihtaa MongoDB-kanta MySQL-tietokantaan (jolloin myös palvelualusta vaihtuu).
-- Backendissä käytetty Expressiä ja RestAPIa.
-- Authorisoinnissa on käytetty JWT-tokenia.
-- Salasanat on kryptattu bcryptillä
+> - Pääosin tekemiseen käytetty Angular versiota 11.
+> - Tietokanta on tällä hetkellä mongodb joka pyörii MongoDBAtlas-palvelussa. Myöhemmin on tarkoitus vaihtaa MongoDB-kanta MySQL-tietokantaan (jolloin myös palvelualusta vaihtuu). Tietokannan käsittelyssä hyödynnetty mongoose-kirjastoja, jolloin myöhempi siirto kannasta toiseen onnistuu helpommin.
+> - FrontEnd on julkaistu Firebase-pilvialustalle
+> - BackEnd pyörii Heroku-pilvihostauspalvelussa. Backend:ssä on käytetty Expressiä ja RestAPIa.
+> - Authorisoinnissa on käytetty JWT-tokenia.
+> - Salasanat on kryptattu bcryptillä
 
 ### Työssä hyödynnetyt tutoriaalit
 
-Tässä lopputyössä on hyödynnetty lähes pelkästään Tommi Tuikan erinomaisia luennoilla käytettyjä esimerkkitehtäviä (meanfront ja restapiexpress). Näistä on kopioitu ja sovellettu rakenteita suuressa mittakaavassa kuitenkin muuttaen toiminnallisuutta ja ulkoasua tähän työhön soveltuvammaksi.
+> Tässä lopputyössä on hyödynnetty lähes pelkästään Tommi Tuikan erinomaisia luennoilla käytettyjä esimerkkitehtäviä
+> Käytetyt tutoriaalit:
+>
+> - HTG41108 Frontend -sovelluskehitys, Tommi Tuikka, luentotallenteet sekä tehtävät [7, 9]
+> - HTG41110 Nodejs -sovelluskehitys, Tommi Tuikka, luentotallenteet sekä tehtävät [3, .. 7, 10]
+> - HTG41109 Mobiilikehitys web-tekniikoilla, Tommi Tuikka, luentotallenteet sekä tehtävät 9 ja 10
 
 ### Komennot, joilla kehitysversion saa Githubista omalle koneelle toimimaan
 
-Itse käytän kopioinnissa seuraavaa valmista ohjetta soveltaen
-[Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+> Kopiointi Githubista onnistuu parhaiten käyttäen Github-dokkareissa kerrottua seuraavaa ohjeatta: [Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 ## 3 Reflektio ja ajankäyttö
 
 ### Miten työ onnistui? Mikä oli helppoa, mikä vaikeaa?
 
-Työn suurimpia haasteita oli päivätyön muuttuneen työkuvan vaatima valtava työpanos syksyn aikana. Eli aikana, jolloin alunperin olin suunnitellut tekeväni tämän lopputyön en pystynytkään kuin vain silloin tällöin panautumaan aiheeseen. Onneksi joulun alla tilanne päivätyön osalta rauhoittui niin, että pääsin kunnolla käsiksi tähän työhön.
-
-Aikataulun venyminen toi myös haasteita siinä, että opitut asiat tuppasivat unohtumaan. Onneksi nämä opetukset oli videoitu. Ilman niiden kelaamista en olisi tästä lopputyöstä selvinnyt (videoita onkin kelattu varmasti kymmeniä kertoja edestakaisin!).
-
-Oma haasteensa oli siinäkin, että yritin haukata alussa liian paljon eli tehdä aivan liian isoa ja hienoa lopputyötä. Näiden uusien asioiden opettelu vaatii kuitenkin paljon aikaa.
+> Työn suurimpia haasteita oli päivätyön muuttuneen työkuvan vaatima valtava työpanos syksyn aikana. Eli ajankohtana, jolloin alunperin olin suunnitellut tekeväni tämän lopputyön isommassa laajuudessaan, en pystynytkään kuin vain silloin tällöin panautumaan aiheeseen. Onneksi joulun alla tilanne päivätyön osalta rauhoittui niin, että pääsin kunnolla käsiksi tähän työhön.
+>
+> Aikataulun venyminen toi minulle suuria haasteita siinä, että opitut asiat unohtuivat. Vaan onneksi nämä opetukset oli videoitu. Ilman niiden kelaamista en olisi tästä lopputyöstä selvinnyt (näitä videoita onkin kelattu varmasti kymmeniä kertoja edestakaisin!).
+>
+> Oma haasteensa oli siinäkin, että yritin haukata alussa liian paljon eli tehdä aivan liian isoa ja hienoa lopputyötä. Näiden uusien asioiden opettelu vaatii kuitenkin paljon aikaa varsinkin minulta.
+>
+> Jos yksittäinen minulle haasteellinen kohta halutaan nostaa esiin, niin se oli Angularin ymmärtäminen. Ja siinä tarkemmin mainiten erityisesti oliorakenne, joka minulle oli vierasta ennen näitä kursseja.
 
 ### Kuinka paljon käytit aikaa loppuharjoitustyön tekemiseen?
 
-Paljon! Jo pelkästään tallenteet olen katsonut moneen kertaan läpi uudestaan ja uudestaan. Ja kun tallenteista (frontend + backend kursseista) pelkästään kertyy yhteensä yli 50 tuntia katsottavaa ja muutakin materiaalia on netistä kaivettu niin kokonaisuudessa kulutin yli 150 tuntia tämän homman tekemiseen. Tarkkaa laskelmaa en valitettavasti tehnyt.
+> Paljon! Jo pelkästään tallenteet olen katsonut moneen kertaan läpi uudestaan ja uudestaan. Ja kun tallenteista frontend ja backend kursseista pelkästään kertyy yhteensä yli 50 tuntia katsottavaa ja muutakin materiaalia on netistä kaivettu niin kokonaisuudessa kulutin reilusti yli 150 tuntia tämän homman tekemiseen. Tarkkaa laskelmaa en valitettavasti tehnyt.
 
 ### Mitä tietoja/taitoja sinun tulee vielä kehittää?
 
-Angularin taitoja pitäisi yleensäkin kehittää. Suuria haasteita on tuonut ja tuo edelleenkin observablet sun muut olioihin liittyvät opettelut. Ei meinaa opettelu oikein sujua, ei sitten millään.
-Myös käyttäjälle näkyvän osuuden eli frontendin rakentelu näköjään tuottaa aina uutta opeteltavaa.
+> Angularin taitoja pitäisi yleensäkin kehittää. Suuria haasteita on tuonut ja tuo edelleenkin observablet sun muut olioihin liittyvät opettelut.
+> Myös käyttäjälle näkyvän osuuden eli frontendin rakentelu on näköjään haasteellista. Näitä pitää siis kehittää ja niin aion myös tehdäkin.
