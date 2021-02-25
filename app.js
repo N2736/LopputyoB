@@ -60,7 +60,8 @@ app.use(passport.session()); // passportin login-sessio
 // on mahdollista tehdä myös rajoituksia siihen mitä reittejä saa käyttää.
 // app.use(cors());  eli cors on auki kaikille reiteille
 corsOptions = {
-    origin: 'http://localhost:4200',
+    // origin: 'http://localhost:4200',
+    origin: 'https://n2736-lopputyo.web.app',
     optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
